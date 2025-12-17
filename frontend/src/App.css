@@ -1,0 +1,167 @@
+* {
+  box-sizing: border-box;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont;
+}
+
+body {
+  margin: 0;
+  background: #ffffff;
+}
+
+/* PAGE */
+.page {
+  min-height: 100vh;
+}
+
+/* SEARCH CONTAINER (video-accurate animation) */
+.search-container {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: transform;
+}
+
+/* CENTER STATE */
+.search-container.center {
+  transform: translateY(35vh);
+}
+
+/* TOP STATE */
+.search-container.top {
+  transform: translateY(0);
+}
+
+/* SPACER (prevents layout jump) */
+.search-spacer {
+  transition: height 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.search-spacer.center {
+  height: 35vh;
+}
+
+.search-spacer.top {
+  height: 0;
+}
+
+/* HEADER */
+.header-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.github-icon {
+  width: 28px;
+  height: 28px;
+  fill: #000;
+}
+
+.header-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.subtitle {
+  font-size: 13px;
+  color: #6b7280;
+}
+
+/* SEARCH BAR */
+.search-row {
+  display: flex;
+  gap: 10px;
+}
+
+.search-row input {
+  flex: 1;
+  padding: 10px 12px;
+  border: 1px solid #d0d7de;
+  border-radius: 4px;
+}
+
+.search-row select {
+  padding: 10px 12px;
+  border: 1px solid #d0d7de;
+  border-radius: 4px;
+  background: #fff;
+  color: #6b7280;
+}
+
+/* GRID */
+.grid {
+  max-width: 1100px;
+  margin: 40px auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+/* CARD */
+.card {
+  background: #f3f4f6;
+  border-radius: 6px;
+  padding: 16px;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+.card img {
+  width: 40px;
+  border-radius: 50%;
+}
+
+.card-title {
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+/* SKELETON */
+.skeleton-card {
+  height: 150px;
+  border-radius: 6px;
+  background: linear-gradient(
+    90deg,
+    #e5e7eb 25%,
+    #f3f4f6 37%,
+    #e5e7eb 63%
+  );
+  background-size: 400% 100%;
+  animation: shimmer 1.4s ease infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 100% 0;
+  }
+  100% {
+    background-position: -100% 0;
+  }
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .search-container.center {
+    transform: translateY(30vh);
+  }
+
+  .search-spacer.center {
+    height: 30vh;
+  }
+}
